@@ -1,0 +1,24 @@
+<!-- landing-page.component.html -->
+<div class="container">
+    <h1 class="mt-4 mb-4">Welcome to All In One application</h1>
+  
+    <div class="card">
+      <div class="card-header">
+        Available Modules
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let modules of modulesArray">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{modules}}</h5>
+                <p class="card-text">This is a description of the {{modules}} App.</p>
+                <a routerLink="{{modules | lowercase}}" class="btn btn-primary">Go to {{modules}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
