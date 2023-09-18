@@ -6,19 +6,21 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { TodoLayoutComponent } from './components/todo-layout/todo-layout.component';
 
 const routes: Routes = [
   {
     path: 'todo',
-    component: TodoIndexComponent,
+    component: TodoLayoutComponent,
     children: [
+      { path: '', component: TodoIndexComponent },
       { path: 'list', component: TodoListComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'add', component: AddTodoComponent },
+      { path: '**', component: PageNotFoundComponent },
     ],
   },
-  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
