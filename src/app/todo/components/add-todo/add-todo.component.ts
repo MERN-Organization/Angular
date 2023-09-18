@@ -10,18 +10,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./add-todo.component.css'],
 })
 export class AddTodoComponent implements OnInit {
-
   constructor(
     private todoServiceInstance: TodoService,
     private toastr: ToastrService
   ) {}
 
-  ngOnInit() {
-    // Subscribe to the todo$ observable to receive updates
-    // this.todoServiceInstance.data$.subscribe((observer) => {
-    //   console.log('This is data', observer);
-    // });
-  }
+  ngOnInit() {}
 
   addTodo(form: NgForm) {
     this.todoServiceInstance.addTodoServiceFunction(
@@ -29,5 +23,10 @@ export class AddTodoComponent implements OnInit {
     );
 
     this.toastr.success('Todo Added Successfully', 'Todo Added');
+    this.resetForm(form);
+  }
+
+  resetForm(form: NgForm) {
+    form.resetForm();
   }
 }

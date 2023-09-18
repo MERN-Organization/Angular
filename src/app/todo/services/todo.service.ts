@@ -1,27 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  todosList: string[] = [];
-
-  // dataSubject = new Subject<string[]>();
-  // data$ = this.dataSubject.asObservable();
+  dataSubject$ = new BehaviorSubject<string[]>([]);
 
   constructor() {}
 
   addTodoServiceFunction(todoValue: string) {
-    this.todosList = [...this.todosList, todoValue];
+    const todoList = [...this.dataSubject$.getValue(), todoValue];
+    this.dataSubject$.next(todoList);
   }
-
-  getTodoServiceFunction(): Observable<string[]> {
-    return new Observable((subscriber) => subscriber.next(this.todosList));
-  }
-
-  // getTodoServiceFunction(): Observable<string[]> {
-  //   // @ts-ignore
-  //  return this.dataSubject.next(this.todosList);
-  // }
 }
