@@ -12,7 +12,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ContactComponent,
     AddTodoComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    TodoRoutingModule
-  ]
+    TodoRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+  ],
 })
-export class TodoModule { }
+export class TodoModule {}

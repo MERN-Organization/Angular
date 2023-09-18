@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -18,6 +19,5 @@ export class TodoListComponent implements OnInit {
     this.todoServiceInstance.getTodoServiceFunction().subscribe((observer) => {
       this.todoListData = observer;
     });
-    console.log('This is todo list data', this.todoListData);
   }
 }

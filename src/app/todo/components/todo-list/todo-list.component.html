@@ -5,24 +5,13 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>#</th>
               <th>Todo Item</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Todo 1</td>
+            <tr *ngFor="let todoIter of todoListData">
+              <td>{{todoIter}}</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Todo 2</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Todo 3</td>
-            </tr>
-            <!-- Add more todo items as needed -->
           </tbody>
         </table>
       </div>
