@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,16 +8,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  todoListData: string[] = [];
+  todoListData: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+
   constructor(private todoServiceInstance: TodoService) {}
 
   ngOnInit(): void {
-    this.getTodo();
-  }
-
-  getTodo() {
-    this.todoServiceInstance.getTodoServiceFunction().subscribe((observer) => {
-      this.todoListData = observer;
-    });
+    this.todoListData = this.todoServiceInstance.dataSubject$;
   }
 }
