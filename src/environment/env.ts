@@ -1,3 +1,3 @@
 export const env = {
-  modulesArray: ['Todo', 'Counter', 'Ecommerce'],
+  modulesArray: ['Test', 'Todo', 'Counter', 'Ecommerce'],
 };
