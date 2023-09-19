@@ -11,8 +11,11 @@ export class TodoListComponent implements OnInit {
   todoListData: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   constructor(private todoServiceInstance: TodoService) {}
-
   ngOnInit(): void {
     this.todoListData = this.todoServiceInstance.dataSubject$;
+  }
+
+  editTodo(todoValue: string) {
+    
   }
 }
