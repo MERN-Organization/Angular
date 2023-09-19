@@ -7,9 +7,10 @@ import { TodoModule } from './todo/todo.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { TestModule } from './test/test.module';
+import { HomeButttonComponent } from './components/home-buttton/home-buttton.component';
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent],
+  declarations: [AppComponent, LandingPageComponent, HomeButttonComponent],
   imports: [BrowserModule, AppRoutingModule, TodoModule, TestModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],

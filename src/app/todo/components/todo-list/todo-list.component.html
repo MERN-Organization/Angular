@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let todoIter of todoListData | async">
-            <td>{{todoIter}}</td>
+            <td (dblclick)="editTodo(todoIter)">{{todoIter}}</td>
           </tr>
         </tbody>
       </table>
