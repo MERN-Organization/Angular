@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 })
 export class TodoListComponent implements OnInit {
   todoListData: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  currentClickedValue: string = '';
 
   constructor(private todoServiceInstance: TodoService) {}
   ngOnInit(): void {
@@ -16,6 +17,6 @@ export class TodoListComponent implements OnInit {
   }
 
   editTodo(todoValue: string) {
-    
+    this.currentClickedValue = todoValue;
   }
 }
